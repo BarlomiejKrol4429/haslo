@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         EditText haslo2 = findViewById(R.id.haslo2);
         Button sprawdz = findViewById(R.id.sprawdz);
         ProgressBar progress_bar = findViewById(R.id.progress_bar);
+        TextView endmessage = findViewById(R.id.endmessage);
 
         sprawdz.setOnClickListener(
                 new View.OnClickListener() {
@@ -48,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
                         boolean czy_duze = false;
                         boolean czy_male = false;
                         if (!email_s.contains("@")){
-                            Toast.makeText(MainActivity.this, "Niepoprawny email!", Toast.LENGTH_SHORT).show();
+                            endmessage.setText("Niepoprawny email!");
                         }
                         else{
-                            if(!pass.equals(pass_confirm)){
-                                Toast.makeText(MainActivity.this, "Niepoprawne hasło!", Toast.LENGTH_SHORT).show();
+                            if(!pass.equals(pass_confirm) || pass.isEmpty()){
+                                endmessage.setText("Niepoprawne hasło!");
                             }else{
                                 if(pass.length() >= 10){
                                     moc_hasla += 1;
@@ -93,8 +95,6 @@ public class MainActivity extends AppCompatActivity {
                                 }if(czy_male){
                                     moc_hasla += 1;
                                 }
-
-
                                 progress_bar.setProgress(moc_hasla);
                                 if (progress_bar.getProgress() <= 2){
 
@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     Toast.makeText(MainActivity.this, "Twoje hasło jest doskonałe!", Toast.LENGTH_SHORT).show();
                                 }
+                                endmessage.setText("Witaj "+email_s);
                             }
                         }
                     }
