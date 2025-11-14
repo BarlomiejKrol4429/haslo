@@ -47,5 +47,13 @@
         android:layout_gravity="center"
         android:text="Sprawdź" />
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="5"
+        android:progressTint="#2A7304" />
+
 
 </LinearLayout>
