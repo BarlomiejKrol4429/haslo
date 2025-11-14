@@ -14,6 +14,7 @@
         android:text="Podaj Email" />
 
     <EditText
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -23,6 +24,7 @@
         android:text="Podaj Hasło" />
 
     <EditText
+        android:id="@+id/haslo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"/>
@@ -33,10 +35,17 @@
         android:text="Potwierdź hasło" />
 
     <EditText
+        android:id="@+id/haslo2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"/>
 
+    <Button
+        android:id="@+id/sprawdz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Sprawdź" />
 
 
 </LinearLayout>
